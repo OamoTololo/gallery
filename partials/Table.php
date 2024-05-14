@@ -31,10 +31,57 @@ class Image extends Database
         }
     }
     // function to get rows
+    public function getRows($start = 0, $limit = 5)
+    {
+        try {
+            $selectEverything = "SELECT * FROM {$this->tableName} ORDER BY imageId DESC LIMIT {$start}, {$limit}";
+            $insertStatement = $this->dbConnection->prepare($selectEverything);
+            $insertStatement->execute();
+
+            if ($insertStatement->rowCount() > 0) {
+                $results = $insertStatement->fetchAll(PDO::FETCH_ASSOC);
+            } else {
+                $results = [];
+            }
+            return $results;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
 
     //function to get single row
+    public function getSingleRow($field, $value)
+    {
+        try {
+            $selectRow = "SELECT * FROM {$this->tableName} WHERE {$field} = {$value}";
+            $insertStatement = $this->dbConnection->prepare($selectRow);
+            $insertStatement->execute();
+
+            if ($insertStatement->rowCount() > 0) {
+                $result = $insertStatement->fetch(PDO::FETCH_ASSOC);
+            } else {
+                $result = [];
+            }
+            return $result;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
 
     // function to count number of rows
+    public function getCount()
+    {
+        try {
+            $selectRow = "SELECT COUNT(*) AS count FROM {$this->tableName}";
+            $insertStatement = $this->dbConnection->prepare($selectRow);
+            $insertStatement->execute();
+            $result = $insertStatement->fetch(PDO::FETCH_ASSOC);
+            $result = ['count' => $result['count']];
+            return $result;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
 
     // function to upload image
 

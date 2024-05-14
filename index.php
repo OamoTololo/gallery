@@ -1,3 +1,8 @@
+<?php
+    require_once "partials/connection.php";
+    $imageGallery = new Database();
+?>
+
 <!doctype html>
 <html lang="en">
 <head>

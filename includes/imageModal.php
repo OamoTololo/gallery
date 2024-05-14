@@ -32,17 +32,19 @@
                     <div class="form-group">
                         <div class="input-group">
                         <label for="image" class="custom-file-label">Choose Image</label>
-                            <input type="file" class="custom-file-input" autocomplete="off" required="required" id="image" name="image">
+                            <input type="file" class="custom-file-input"  required="required" id="image" name="image">
                         </div>
                     </div>
-                    <!-- Image -->
+                    <!-- Date -->
                     <div class="form-group">
                             <input type="date" class="form-control" autocomplete="off" required="required" id="modifiedDate" name="modifiedDate">
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Save</button>
+                    <button type="submit" class="btn btn-outline-dark" data-dismiss="modal">Save</button>
                     <button type="button" class="btn btn-outline-danger">Close</button>
+                    <input type="hidden" name="action" value="addImage">
+                    <input type="hidden" name="imageId" id="imageId" value="">
                 </div>
             </form>
         </div>

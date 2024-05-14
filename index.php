@@ -15,6 +15,7 @@
 
 <h1 class="bg-dark text-light text-center py-2">Gallery</h1>
 <div class="container">
+    <?php include 'includes/imageModal.php'?>
     <div class="row">
         <div class="col-10">
             <div class="input-group">
@@ -25,7 +26,7 @@
             </div>
         </div>
         <div class="col-2">
-            <button class="btn btn-dark">Add Image</button>
+            <button class="btn btn-dark" type="button" data-toggle="modal" data-target="#imageModal">Add Image</button>
         </div>
     </div>
 

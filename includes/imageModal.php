@@ -35,6 +35,10 @@
                             <input type="file" class="custom-file-input" autocomplete="off" required="required" id="image" name="image">
                         </div>
                     </div>
+                    <!-- Image -->
+                    <div class="form-group">
+                            <input type="date" class="form-control" autocomplete="off" required="required" id="modifiedDate" name="modifiedDate">
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Save</button>

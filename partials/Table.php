@@ -84,6 +84,29 @@ class Image extends Database
     }
 
     // function to upload image
+    public function uploadImage($file)
+    {
+        if (!empty($file)) {
+            $tmpName = $file['tmp_name'];
+            $name = $file['name'];
+            $type = $file['type'];
+            $fileNameCmps = explode(".", $name);
+            $fileExtension = strtolower(end($fileNameCmps));
+            $newFileName = md5(time()) . $name . '.' . $fileExtension;
+            $allowedExtension = array("gif", "jpeg", "jpg", "png");
+
+            if (in_array($fileExtension, $allowedExtension)) {
+                $uploadFileDir = getcwd() . '/uploads/';
+                $destFilePath = $uploadFileDir . $newFileName;
+
+                if (move_uploaded_file($tmpName, $destFilePath)) {
+                    return $newFileName;
+                }
+            }
+
+
+        }
+    }
 
     // function to update image
 

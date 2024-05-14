@@ -1,5 +1,5 @@
 <?php
-    require_once "partials/connection.php";
+    require_once "partials/Database.php";
     $imageGallery = new Database();
 ?>
 
